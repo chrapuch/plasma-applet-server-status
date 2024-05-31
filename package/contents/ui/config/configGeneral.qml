@@ -213,9 +213,9 @@ Item {
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 15
 					onActivated: {
 						if(index == 3)
-							commandGroup.visible = true
+							commandGroup.enabled = true
 						else
-							commandGroup.visible = false
+							commandGroup.enabled = false
 					}
 				}
 				
@@ -233,7 +233,7 @@ Item {
 			GroupBox {
 				id: commandGroup
 				title: "Command"
-				visible: false
+				visible: true
 				
 				anchors.left: parent.left
 				anchors.right: parent.right
@@ -277,6 +277,7 @@ Item {
 		
 		serverDialog.visible = true;
 		serverName.focus = true;
+		serverCommand.text = serversModel.get(dialogMode).extraOptions.command;
 	}
 	
 	function getServersArray() {
